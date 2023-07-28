@@ -23,7 +23,7 @@ export default function App() {
             if (term) {
                 search();
             };
-        }, 1500);
+        }, 1200);
 
         return () => {
             clearTimeout(debounceSearch);
