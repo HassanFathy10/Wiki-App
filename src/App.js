@@ -9,6 +9,36 @@ export default function App() {
                     <input type="text" className="form-control" id="exampleFormControlInput1"></input>
                 </div>
             </div>
+            <div className='row'>
+                <div className='col'>
+                    <table className='table'>
+                        <thead>
+                            <tr>
+                                <th scope='col'>#</th>
+                                <th scope='col'>Title</th>
+                                <th scope='col'>Desc</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope='row'>1</th>
+                                <td>title</td>
+                                <td>Desc</td>
+                            </tr>
+                            <tr>
+                                <th scope='row'>1</th>
+                                <td>title</td>
+                                <td>Desc</td>
+                            </tr>
+                            <tr>
+                                <th scope='row'>1</th>
+                                <td>title</td>
+                                <td>Desc</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     );
 };
