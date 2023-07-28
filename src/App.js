@@ -3,7 +3,7 @@ import axios from "axios";
     
 export default function App() {
     const [term, setTerm] = useState("");
-    const [result, setResult] = useState("");
+    const [result, setResult] = useState([]);
 
     useEffect(() => {
         const search = async () => {
@@ -14,7 +14,6 @@ export default function App() {
                     origin: "*",
                     format: "json",
                     srsearch: term,
-                    
                 },
             });
             setResult(respond.data.query.search);
@@ -23,7 +22,16 @@ export default function App() {
             search();
         };
     }, [term]);
-
+    
+    const fetchResult = result.map((el) => {
+        return (
+            <tr>
+                <th scope='row' key={el.pageid}>1</th>
+                <td>{el.tittle}</td>
+                <td>{el.snippet}</td>
+            </tr>
+        );
+    });
     return (
         <div className="container">
             <div className="row">
@@ -43,21 +51,7 @@ export default function App() {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope='row'>1</th>
-                                <td>title</td>
-                                <td>Desc</td>
-                            </tr>
-                            <tr>
-                                <th scope='row'>1</th>
-                                <td>title</td>
-                                <td>Desc</td>
-                            </tr>
-                            <tr>
-                                <th scope='row'>1</th>
-                                <td>title</td>
-                                <td>Desc</td>
-                            </tr>
+                            {fetchResult}
                         </tbody>
                     </table>
                 </div>
