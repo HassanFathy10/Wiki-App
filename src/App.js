@@ -14,13 +14,15 @@ export default function App() {
                     origin: "*",
                     format: "json",
                     srsearch: term,
+                    
                 },
             });
+            setResult(respond.data.query.search);
         };
         if (term) {
             search();
         };
-    });
+    }, [term]);
 
     return (
         <div className="container">
