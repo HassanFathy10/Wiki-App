@@ -1,16 +1,12 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
+import usePrevState from './hooks/usePrevState';
 import axios from 'axios';
 
 export default function App() {
     const [term, setTerm] = useState('javascript');
     const [result, setResult] = useState([]);
-    const prevStateTerm = useRef('');
-
-    useEffect(() => {
-        prevStateTerm.current = term;
-    }, [term]);
-
-    const prevTerm = prevStateTerm.current;
+    const prevTerm = usePrevState(term);
+    
 
     useEffect(() => {
         const search = async () => {
@@ -26,8 +22,10 @@ export default function App() {
             setResult(respond.data.query.search);
         };
         if (!result.length) {
-            search();
-        } else if (term !== prevTerm) {
+            if (term) {
+                search();
+            }
+        } else if (prevTerm !== term) {
             const debounceSearch = setTimeout(() => {
                 if (term) {
                     search();
