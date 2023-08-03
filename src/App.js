@@ -40,7 +40,7 @@ export default function App() {
     const fetchResult = result.map((el) => {
         return (
             <tr key={el.pageid}>
-                <td>-</td>
+                <td className='text-primary fw-bold'>-</td>
                 <td>{el.title}</td>
                 <td>
                     <span dangerouslySetInnerHTML={{ __html: el.snippet }} />
@@ -54,7 +54,7 @@ export default function App() {
             <div className='row'>
                 <div className='col'>
                     <div className='my-3'>
-                        <label htmlFor='exampleFormControlInput1' className='form-label'>
+                        <label htmlFor='exampleFormControlInput1' className='form-label fs-3 fw-bold'>
                             Search Input
                         </label>
                         <input
@@ -65,8 +65,6 @@ export default function App() {
                             value={term}
                         />
                     </div>
-                    <p>Current term: {term}</p>
-                    <p>Prev Term: {prevTerm}</p>
                 </div>
             </div>
             <div className='row'>
@@ -74,9 +72,9 @@ export default function App() {
                     <table className='table'>
                         <thead>
                             <tr>
-                                <th scope='col'>#</th>
+                                <th scope='col' className='text-primary'>#</th>
                                 <th scope='col'>Title</th>
-                                <th scope='col'>Desc</th>
+                                <th scope='col'>Description</th>
                             </tr>
                         </thead>
                         <tbody>{fetchResult}</tbody>
