@@ -73,8 +73,8 @@ export default function App() {
                         <thead>
                             <tr>
                                 <th scope='col' className='text-primary'>#</th>
-                                <th scope='col'>Title</th>
-                                <th scope='col'>Description</th>
+                                <th scope='col' className='text-primary'>Title</th>
+                                <th scope='col' className='text-primary'>Description</th>
                             </tr>
                         </thead>
                         <tbody>{fetchResult}</tbody>
