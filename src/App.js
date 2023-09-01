@@ -3,7 +3,7 @@ import usePrevState from './hooks/usePrevState';
 import axios from 'axios';
 
 export default function App() {
-    const [term, setTerm] = useState('javascript');
+    const [term, setTerm] = useState('React.js');
     const [result, setResult] = useState([]);
     const prevTerm = usePrevState(term);
     
